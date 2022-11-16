@@ -2,6 +2,9 @@
 <html class="no-js" lang="en">
 
 <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
     <title>Publish Web</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
@@ -11,6 +14,8 @@
     <link rel="stylesheet" href="./libs/css/app.css" type="text/css" />
     <script type="text/javascript" src="./libs/js/app/app.bizagi.min.js"></script>
     <link href="./libs/css/google-opensans.css" rel="stylesheet">
+    
+
 </head>
 
 <body class="off-canvas hide-extras">
@@ -26,7 +31,14 @@
  -->
 
     <div class="biz-ex-wrapper row"></div>
+    <div class="footer fixed-bottom bg-dark">
+        <div class="text-center p-3 bg-dark">
+          © 2022 Copyright: Lourdes Rojas
+        </div>
+    </div>
+</div>
 
+    
     <div class="alert-box biz-ex-supported">
         <p id="biz-ex-support"></p>
         <a href="http://www.google.com/intl/es-419/chrome/" title="Chrome" target="_blank"><span class="biz-ex-iconbrowser-chrome"></span></a>
@@ -105,6 +117,7 @@
     @view:          Bizagi.App.Views.DiagramView
     @description:   Diagram Process / Zoom Plugin Markup
 -->
+
 <script type="text/x-jquery-tmpl" id="ZoomerViewTmpl">
     <div class="zoom-container" data-zoomcontainer>
         <div data-zoomcontent draggable="true">
@@ -169,6 +182,9 @@
 <!-- 
 	@name: Container Template
 	@view: General Layout
+
+   COLUMNA DE BUSCAR TODO, ANCHO-3
+   DIAGRAMAS, ANCHO-9
 -->
 
 <script type="text/x-jquery-tmpl" id="ContainerTmpl">
@@ -969,6 +985,8 @@
 <!-- 
     @name: Header View Template
     @view: Bizagi.App.Views.HeaderView
+
+    HEADER, TITULO, ANCHO Y LOGOS
 -->
 <script type="text/x-jquery-tmpl" id="HeaderViewTmpl">
     <div class="large-3 columns biz-ex-logo">
@@ -982,9 +1000,9 @@
     <div class="large-9 columns biz-ex-top-nav">
         <div class="large-7 columns biz-ex-navigation-data">
             <h1 class="biz-ex-title-process">
-                <a href="list/" class="biz-ex-navigate" title="${Bizagi.Util.getResource('home')}">${process}</a>
+                <a href="list/" class="biz-ex-navigate" title="${Bizagi.Util.getResource('home')}">Proceso de llenado del Formato de asesorías</a>
             </h1>
-            <h2 class="biz-ex-title-diagram" title="${name}">${name}</h2>
+            <h2 class="biz-ex-title-diagram" title="${name}"> FORMATO DE ASESORÍA </h2>
             {{if PublishWebAttributes.showPublishDate}}
             <p class="biz-ex-time"><time datetime="${publishDate}">${publishDate}</time></p>
             {{/if}}
@@ -1003,7 +1021,7 @@
                 </li>
                 {{if !Bizagi.AppModel.personalized}}
                 <li>
-                    <a href="http://www.bizagi.com/" target="_blank" class="biz-ex-bizagi">${Bizagi.Util.getResource('visitBizagi')}</a>
+                    <a href="http://www.itpachuca.edu.mx//" target="_blank" class="biz-ex-bizagi">${Bizagi.Util.getResource('visitaITP')}</a>
                 </li>
                 {{/if}}
             </ul>
@@ -1432,6 +1450,8 @@
 <!--
     @name:      List/Table View
     @view:      Bizagi.App.Views.TableView
+
+    ANCHO Y LARGO DE LOS DIAGRAMAS
 -->
 <script type="text/x-jquery-tmpl" id="TableViewTmpl">
     <div class='row biz-ex-table-view'></div>
@@ -1439,9 +1459,9 @@
 <script type="text/x-jquery-tmpl" id="TableViewTmplItem">
     <div>
         {{if hasPublishedSubPages}}
-        <a href="dialog/diagram/${id}" class='columns large-4 biz-ex-box-process biz-ex-dialog biz-ex-navigate' data-id="${id}">
+        <a href="dialog/diagram/${id}" class='columns large-12 biz-ex-box-process biz-ex-dialog biz-ex-navigate' data-id="${id}">
         {{else}}
-            <a href="diagram/${id}" class='columns large-4 biz-ex-box-process biz-ex-navigate'>
+            <a href="diagram/${id}" class='columns large-12 biz-ex-box-process biz-ex-navigate'>
         {{/if}}
             <span class="biz-ex-is-hidden">dialog/diagram/${id}</span>
             <div class="bix-ex-figure-panel">
@@ -1616,7 +1636,7 @@ body, html{
 .nav-bar {
     border-top-color: @navigation-border;
     .biz-ex-sub-page a { border-bottom-color: @navigation-border; }
-    .biz-ex-sub-page.active { background: fade(@navigation-link, 25%); }
+    .biz-ex-sub-page.active { background: fade(@navigation-link, 5%); }
     a {
         color: @navigation-link;
         &:hover {
